@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
+
+import TodoBox from './components/TodoBox'
+import TodoList from './components/TodoList'
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      todoItems:[]
+    };
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+  onSubmit(e){
+    let todoListValue = this.refs.todobox.getInputValue();
+    let newTodoItemsValue = this.state.todoItems.concat(todoListValue);
+    this.setState({ todoItems: newTodoItemsValue })
+  }
   render() {
+    
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <TodoBox ref="todobox" onSubmit = { this.onSubmit }/>
+        <TodoList ref="todolist" items={ this.state.todoItems }/>
       </div>
     );
   }
