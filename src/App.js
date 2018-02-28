@@ -18,9 +18,10 @@ class App extends Component {
     this.setState({ todoItems: newTodoItemsValue })
   }
   render() {
-    
+
     return (
       <div className="App">
+        <h1 className="App-title">Mi primer todolist</h1>
         <TodoBox ref="todobox" onSubmit = { this.onSubmit }/>
         <TodoList ref="todolist" items={ this.state.todoItems }/>
       </div>

@@ -26,3 +26,8 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.App-title{
+  font-size: 2em;
+  font-family: sans-serif;
+}

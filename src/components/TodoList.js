@@ -13,7 +13,7 @@ class TodoList extends Component {
   }
   componentWillReceiveProps(nextProps){
     // lo utilizamos cuando usamos como variable de estado nuestra prop
-    if(nextProps.length != this.state.items.length){
+    if(nextProps.length !== this.state.items.length){
       // si hay un nuevo elemento...
       this.setState({ items: nextProps.items})
     }
